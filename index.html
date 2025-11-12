@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melissa Parada Quinatoa - Data Analytics Professional </title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #1a1a1a;
+            --soft-black: #2d2d2d;
+            --warm-white: #fafaf8;
+            --cream: #f5f4f0;
+            --gold: #c9a961;
+            --dark-gold: #b8995a;
+            --text-gray: #6b6b6b;
+            --light-gray: #e8e6e1;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--soft-black);
+            background: var(--warm-white);
+            scroll-behavior: smooth;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary-black);
+            color: var(--warm-white);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--warm-white);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--warm-white);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--warm-white);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, var(--primary-black) 0%, var(--soft-black) 100%);
+            color: var(--warm-white);
+            padding: 10rem 3rem 6rem;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--warm-white);
+        }
+
+        .hero .status {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .skills-blurb {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--light-gray);
+            font-weight: 300;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--cream);
+            padding: 6rem 3rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 5rem;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .profile-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: 2px;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--gold);
+        }
+
+        .about-text h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary-black);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: var(--warm-white);
+            padding: 6rem 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: var(--primary-black);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--cream);
+            border: 1px solid var(--light-gray);
+            padding: 2.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .project-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            color: var(--primary-black);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .project-summary {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-tag {
+            background: transparent;
+            color: var(--soft-black);
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--soft-black);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-black);
+            color: var(--warm-white);
+        }
+
+        .download-btn {
+            background: var(--primary-black);
+            color: var(--warm-white);
+            border: 2px solid var(--primary-black);
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .download-btn:hover {
+            background: transparent;
+            color: var(--primary-black);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--cream);
+            padding: 6rem 3rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--warm-white);
+            border: 1px solid var(--light-gray);
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .contact-label {
+            font-weight: 500;
+            color: var(--primary-black);
+            margin-bottom: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .contact-info {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .contact-info:hover {
+            color: var(--gold);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            background: var(--primary-black);
+            color: var(--gold);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--primary-black);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 3rem 0;
+                gap: 2rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .status {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .profile-photo {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 3rem 1.5rem;
+            }
+
+            .about-section,
+            .projects-section,
+            .contact-section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">YOUR NAME</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Melissa Parada Quinatoa</h1>
+        <p class="status">Data Analytics Professional </p>
+        <div class="skills-blurb">
+            <p> Analytical and adaptable Business Analytics graduate who thrives on making sense of complex information in uncertain conditions. Skilled in quantitative problem-solving and effective communication developed through research and teaching. Eager to learn from the field and help transform raw data into understanding that supports decisive, informed action within the defense community.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <div class="profile-photo">
+                [Insert Your Professional Photo Here]
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    I’m a Business Analytics graduate with a passion for turning complex ideas into clarity and confidence.
+                  My experience in research, tutoring, and mentoring has strengthened my ability to communicate across different levels of understanding and connect analytical thinking with real-world impact.
+                  I’m deeply curious about how data shapes decision-making and I’m driven to keep learning and contributing wherever data meets purpose.
+                </p>
+                <p>
+                    I enjoy exploring the patterns hidden within data and using tools like Python, SQL, and Tableau to make those patterns come to life. 
+                  My academic projects and research have strengthened my comfort with statistical modeling, visualization, and storytelling through numbers. 
+                  Whether I’m testing a model or simplifying results for a non-technical audience, I focus on accuracy, curiosity, and making information feel approachable and meaningful.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <!-- Data Visualization Project -->
+            <div class="project-card">
+                <h3 class="project-title"> Data Viz Project Title</h3>
+                <p class="project-summary">
+                    [Data visualization project here.]
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+                <button class="download-btn" onclick="downloadProject('visualization')">Download to View</button>
+            </div>
+
+            <!-- Simulation Project -->
+            <div class="project-card">
+                <h3 class="project-title">Simulation Model</h3>
+                <p class="project-summary">
+                    [Summary of Project. Place Here!.]
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Monte Carlo</span>
+                </div>
+                <button class="download-btn" onclick="downloadProject('stock')">View Project</button>
+            </div>
+
+            <!-- AI Project -->
+            <div class="project-card">
+                <h3 class="project-title">Artificial Intelligence Solution</h3>
+                <p class="project-summary">
+                    [Describe your AI project. Explain the business problem, the AI approach used, model development process, and the impact of the solution.]
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                </div>
+                <button class="download-btn" onclick="downloadProject('ai')">View Project</button>
+            </div>
+
+            <!-- Language Learning Model Project -->
+            <div class="project-card">
+                <h3 class="project-title">Language Learning Model Application</h3>
+                <p class="project-summary">
+                    [Describe your language learning model project. Explain the NLP techniques used, training data, model architecture, and practical applications.]
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Transformers</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">PyTorch</span>
+                </div>
+                <button class="download-btn" onclick="downloadProject('llm')">View Project</button>
+            </div>
+
+            <!-- Forecasting Project -->
+            <div class="project-card">
+                <h3 class="project-title">Time Series Forecasting Model</h3>
+                <p class="project-summary">
+                    [Describe your forecasting project. Explain the business context, forecasting methods used, accuracy metrics, and how the forecasts are used for decision-making.]
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">Time Series</span>
+                    <span class="skill-tag">ARIMA</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">R</span>
+                </div>
+                <button class="download-btn" onclick="downloadProject('forecasting')">View Project</button>
+            </div>
+
+            <!-- Classification Project -->
+            <div class="project-card">
+                <h3 class="project-title">Classification Model Implementation</h3>
+                <p class="project-summary">
+                    [Describe your classification project. Explain the classification problem, data preprocessing, model selection, performance metrics, and business value delivered.]
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">Classification</span>
+                    <span class="skill-tag">Random Forest</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">XGBoost</span>
+                </div>
+                <button class="download-btn" onclick="downloadProject('classification')">View Project</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-grid">
+            
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:mparadaquin@gmail.com" class="contact-info">mparadaquin@gmail.com</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <div class="contact-label">Phone</div>
+                <a href="tel:+15718889791" class="contact-info">+1 (571) 888-979</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">💼</div>
+                <div class="contact-label">LinkedIn</div>
+                <a href="https://www.linkedin.com/in/melissa-parada-quinatoa" target="_blank" class="contact-info">linkedin.com/in/melissa-parada-quinatoa</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">🔗</div>
+                <div class="contact-label">GitHub</div>
+                <a href="https://github.com/mpquinat" target="_blank" class="contact-info">github.com/mpquinat</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.remove('active');
+        }
+
+        // Back to Top Button
+        window.onscroll = function() {
+            const button = document.getElementById('backToTop');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.classList.add('visible');
+            } else {
+                button.classList.remove('visible');
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Download Project Function
+        function downloadProject(projectName) {
+            alert('Download link for ' + projectName + ' project will be added here. You can link to your GitHub repository or a direct download link.');
+            // Replace with actual download logic:
+            // window.location.href = 'path/to/your/project/files.zip';
+        }
+    </script>
+</body>
+</html>
